@@ -68,7 +68,7 @@
 * next: while-loops-cert
 * position: 1 3
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-4
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-5
 * imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-5.gif
 
 
