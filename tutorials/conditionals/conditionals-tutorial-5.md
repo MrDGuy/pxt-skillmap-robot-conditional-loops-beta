@@ -1,18 +1,5 @@
 # Write a single while loop to move the robot across two tilemaps.
 
-```template
-let tile_map1 = tiles.createMap(tilemap`level1`)
-let tile_map2 = tiles.createMap(tilemap`level2`)
-tiles.loadMap(tile_map1)
-robot.beginScreen()
-tiles.connectMapById(tile_map1, tile_map2, ConnectionKind.Door1)
-scene.onOverlapTile(SpriteKind.Player, assets.tile`door1`, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
-    tiles.loadMap(tile_map2)
-    robot.beginScreen()
-})
-//begin writing your code here:
-```
-
 ## Introduction @unplugged
 
 In this tutorial you will create a single while loop to give the robot all the necessary conditions to navigate any pathway to the goalTile across two tilemaps.
@@ -20,195 +7,455 @@ In this tutorial you will create a single while loop to give the robot all the n
 
 ## Step One
 
-Bring in a ``||robot:begin screen||`` code to start your code.
+Create two custom tilemaps that each contain a startTile and one with a connection tile and the other with a goalTile.  Make sure you create a custom coinTile to place coins on your tilemaps.  Name the first tilemap level1 and the second level2. 
 
-```python
-robot.begin_screen()
-```
+Here is a slideshow showing you how to create custom tilemaps that have a connection tile named door1.
+https://docs.google.com/presentation/d/197ps_WnRzQuTZUjZKKPDIfWs46FLAPVblv8GIuTB6w8/edit?usp=sharing
 
 ## Step Two
 
-Now click the ``||loops:loops||`` category from the toolbox and drag in the ``||loops:while||`` code. Make sure your tabbing is correct.
+Use the ``||tiles:tilemap ||`` code to create a new tilemap. Click the map and then Create a custom tilemaps that contains a startTile and a connection tile named door1.  Make sure you create a custom coinTile to place coins on your tilemaps.  Name the first tilemap level1.
 
 ```python
-robot.begin_screen()
-while True:
-    pass
+tiles.create_map(tilemap("""level1"""))
 ```
 
 ## Step Three
 
-Delete the True next to the while and drag in a ``||robot:goal reached||``.
+After that in the front of the line of code write tile_map1 =.
 
 ```python
-robot.begin_screen()
-while robot.goal_reached():
-    pass
+tile_map1 = tiles.create_map(tilemap("""level1"""))
 ```
 
 ## Step Four
 
-After the ``||robot:goal reached||`` code write == False.  Notice that there are TWO EQUALS SIGNS. Make sure that the F is capitalized in False.
+Use the ``||tiles:tilemap ||`` code to create a new tilemap. Click the map and then Create a custom tilemaps that contains a startTile and a goalTile.  Make sure you create a custom coinTile to place coins on your tilemaps.  Name the second tilemap level2.
 
 ```python
-robot.begin_screen()
-while robot.goal_reached() == False:
-    pass
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tiles.create_map(tilemap("""level2"""))
 ```
+
 ## Step Five
 
-Delete the pass. Click in the ``||logic:logic||`` category and drag in the ``||logic:if||`` inside the while loop where the pass had been.
+After that in the front of the line of code write tile_map2 =.
+![Customize your tilemap](https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot/main/docs/static/variables-tilemaps-1.png "Customize Tilemap" )
 
 ```python
-robot.begin_screen()
-while robot.goal_reached() == False:
-    if True:
-        pass
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
 ```
 
 ## Step Six
 
-Delete the True next to the if.  Click and drag in a ``||robot:detect coin||`` code to the where the True had been. Make sure that the colon is still there.
+Load the tilemap tile_map1. Code: tiles.load_map(tile_map1)
+![Customize your tilemap](https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot/main/docs/static/variables-tilemaps-2.gif "Customize Tilemap" )
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+```
+
+## Step Seven
+
+Use the ``||robot:begin screen ||`` code to start your robot on the start tile and set up the tilemap.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        pass
 ```
 
 ## Step Eight
 
-Delete the pass and make sure you write the code exactly where the pass had been.  Drag in a ``||robot:collect coin||`` code where the pass had been.
+Connect the two tilemaps with ``||tiles:connect tilemap1 and tilemap2 by connection ||`` code.  
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
+tiles.connect_map_by_id(tilemap1, tilemap2, ConnectionKind.door1)
 ```
-## Step Nine
 
-Delete the pass. Click in the ``||logic:logic||`` category and drag in the ``||logic:if||`` inside the while loop where the pass had been.
+## Step Nine
+Change tiles.connect_map_by_id(tilemap1, tilemap2, ConnectionKind.door1) to tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if True:
-        pass
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
 ```
 
 ## Step Ten
 
-Delete the True next to the if.  Click and drag in a ``||robot:can move||`` code to the where the True had been. Make sure that the colon is still there.
+Pull in the code from the ``||scene:run code on sprite of kind overlaps tile at location||`` in the ``||scene:scene||`` category under the tilemaps section.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move(""):
-        pass
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    pass
+scene.on_overlap_tile(SpriteKind.player, img(""" """), on_overlap_tile)
 ```
 
 ## Step Eleven
 
-The "" inside the parethenses is the direction you want to check if the robot can move.  The options are forward, backward, left, and right.  ALL LOWERCASE! Type right inside the quotation marks.
+Replace the img(""" """) code at the end of the overlap tile code with assets.tile("""door1""")
 
-```python
+```pythontile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        pass
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    pass
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 ```
 
 ## Step Twelve
 
-Delete the pass and make sure you write the code exactly where the pass had been.  Drag in a ``||robot:turn right||`` code where the pass had been.
+Replace the pass in the on_overlap_tile function with ``||tiles:set current tilemap to map||`` code to load tile_map2. Also, include a new ``||robot:begin screen||`` to load the next level properly.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        robot.turn_right()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 ```
-
 ## Step Thirteen
-
-Next drag  in an ``||logic:if||`` code to where line 8 inside the loop but not tabbed twice so it is outside of the if robot.can_move("right"):
+Now click the ``||loops:loops||`` category from the toolbox and drag in the ``||loops:while||`` code. Make sure your tabbing is correct.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        robot.turn_right()
-    if True:
-        pass
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while True:
+    pass
 ```
 
 ## Step Fourteen
 
-Delete the True next to the if.  Click and drag in a ``||robot:can move||`` code to the where the True had been. Make sure that the colon is still there.
+Delete the True next to the while and drag in a ``||robot:goal reached||``.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        robot.turn_right()
-    if robot.can_move(""):
-        pass
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached():
+    pass
 ```
 
 ## Step Fifteen
 
-Write left inside the quotations for the second if statement. Include a ``||robot:turn left||`` instead of the pass. 
+After the ``||robot:goal reached||`` code write == False.  Notice that there are TWO EQUALS SIGNS. Make sure that the F is capitalized in False.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
-while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        robot.turn_right()
-    if robot.can_move("left"):
-        robot.turn_left()
-```
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
 
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    pass
+```
 ## Step Sixteen
 
-Next drag  in an ``||logic:if else||`` code to where line 8 inside the loop but not tabbed twice so it is outside of the if robot.can_move("left"):
+Delete the pass. Click in the ``||logic:logic||`` category and drag in the ``||logic:if||`` inside the while loop where the pass had been.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 while robot.goal_reached() == False:
-    if robot.detect_coin():
-        robot.collect_coin()
-    if robot.can_move("right"):
-        robot.turn_right()
-    if robot.can_move("left"):
-        robot.turn_left()
     if True:
-        pass
-    else:
         pass
 ```
 
 ## Step Seventeen
 
+Delete the True next to the if.  Click and drag in a ``||robot:detect coin||`` code to the where the True had been. Make sure that the colon is still there.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        pass
+```
+
+## Step Eighteen
+
+Delete the pass and make sure you write the code exactly where the pass had been.  Drag in a ``||robot:collect coin||`` code where the pass had been.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+```
+## Step Nineteen
+
+Delete the pass. Click in the ``||logic:logic||`` category and drag in the ``||logic:if||`` inside the while loop where the pass had been.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if True:
+        pass
+```
+
+## Step Twenty
+
 Delete the True next to the if.  Click and drag in a ``||robot:can move||`` code to the where the True had been. Make sure that the colon is still there.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move(""):
+        pass
+```
+
+## Step Twenty One
+
+The "" inside the parethenses is the direction you want to check if the robot can move.  The options are forward, backward, left, and right.  ALL LOWERCASE! Type right inside the quotation marks.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        pass
+```
+
+## Step Twenty Two
+
+Delete the pass and make sure you write the code exactly where the pass had been.  Drag in a ``||robot:turn right||`` code where the pass had been.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        robot.turn_right()
+```
+
+## Step Twenty Three
+
+Next drag  in an ``||logic:if||`` code to where line 8 inside the loop but not tabbed twice so it is outside of the if robot.can_move("right"):
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        robot.turn_right()
+    if True:
+        pass
+```
+
+## Step Twenty Four
+
+Delete the True next to the if.  Click and drag in a ``||robot:can move||`` code to the where the True had been. Make sure that the colon is still there.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        robot.turn_right()
+    if robot.can_move(""):
+        pass
+```
+
+## Step Twenty Five
+
+Write left inside the quotations for the second if statement. Include a ``||robot:turn left||`` instead of the pass. 
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        robot.turn_right()
+    if robot.can_move("left"):
+        robot.turn_left()
+```
+
+## Step Twenty Six
+
+Next drag  in an ``||logic:if else||`` code to where line 8 inside the loop but not tabbed twice so it is outside of the if robot.can_move("left"):
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
+while robot.goal_reached() == False:
+    if robot.detect_coin():
+        robot.collect_coin()
+    if robot.can_move("right"):
+        robot.turn_right()
+    if robot.can_move("left"):
+        robot.turn_left()
+    if True:
+        pass
+    else:
+        pass
+```
+
+## Step Twenty Seven
+
+Delete the True next to the if.  Click and drag in a ``||robot:can move||`` code to the where the True had been. Make sure that the colon is still there.
+
+```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
+robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 while robot.goal_reached() == False:
     if robot.detect_coin():
         robot.collect_coin()
@@ -222,12 +469,21 @@ while robot.goal_reached() == False:
         pass
 ```
 
-## Step Eighteen
+## Step Twenty Eight
 
 Write forward inside the quotations for the second if statement. Include a ``||robot:move forward||`` instead of the pass.  
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 while robot.goal_reached() == False:
     if robot.detect_coin():
         robot.collect_coin()
@@ -241,12 +497,21 @@ while robot.goal_reached() == False:
         pass
 ```
 
-## Step Nineteen
+## Step Twenty nine
 
 In the else, write ``||robot: turn_left||`` two times to turn the robot around.  This is the case when the robot is blocked from the front, left and right so it needs to turn back.  Run your code a watch the robot navigate on it's own.
 
 ```python
+tile_map1 = tiles.create_map(tilemap("""level1"""))
+tile_map2 = tiles.create_map(tilemap("""level2"""))
+tiles.load_map(tile_map1)
 robot.begin_screen()
+tiles.connect_map_by_id(tile_map1, tile_map2, ConnectionKind.door1)
+
+def on_overlap_tile(sprite, location):
+    tiles.load_map(tile_map2)
+    robot.begin_screen()
+scene.on_overlap_tile(SpriteKind.player, assets.tile("""door1"""), on_overlap_tile)
 while robot.goal_reached() == False:
     if robot.detect_coin():
         robot.collect_coin()
