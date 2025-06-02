@@ -1,8 +1,8 @@
 # robot-conditional-loops
 * name: Coding the Robot in Python learning about While Loops.
 * description: Extending python language concepts with the robot
-* bannerUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-1.gif
-* backgroundurl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/skillmap-background-3.png
+* bannerUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-1.gif
+* backgroundurl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/skillmap-background-3.png
 * primarycolor: #A4839F
 * secondarycolor: #78DC52
 * tertiarycolor: #FFFFFF
@@ -24,8 +24,8 @@
 * next: while-loops-2
 * position: 0 0
 * 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-1
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-1.gif
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/conditionals-tutorial-1
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-1.gif
 
 ### while-loops-2
 * name: Follow Coins
@@ -35,8 +35,8 @@
 * next: while-loops-3
 * position: 0 1
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-2
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-2.gif
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/conditionals-tutorial-2
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-2.gif
 
 ### while-loops-3
 * name: One While Loop for an entire tilemap
@@ -46,8 +46,8 @@
 * next: while-loops-4
 * position: 0 2
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-3
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-3.gif
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/conditionals-tutorial-3
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-3.gif
 
 ### while-loops-4
 * name: One While Loop to Collect Coins and Reach Goal
@@ -57,8 +57,8 @@
 * next: while-loops-5
 * position: 0 3
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-4
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-4.gif
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/conditionals-tutorial-4
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-4.gif
 
 ### while-loops-5
 * name: One While Loop for multiple tilemaps
@@ -68,22 +68,22 @@
 * next: while-loops-cert
 * position: 1 3
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/conditionals-tutorial-5
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-5.gif
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/conditionals-tutorial-5
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-5.gif
 
 
 ### while-loops-cert
 * name: Congrats!
 * kind: completion
 * type: certificate
-* url: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-certificate.pdf
-* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-certificate.png
+* url: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-certificate.pdf
+* imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-certificate.png
 * next: make-your-own-maze
 * position: 1 4
 * rewards:
     * certificate:
-        * url: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-certificate.pdf
-        * preview: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-certificate.png
+        * url: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-certificate.pdf
+        * preview: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/main/docs/static/while-loop-certificate.png
 
 
 ### make-your-own-maze
@@ -93,5 +93,5 @@
 * tags: conditionals, loops, functions, customized tilemaps
 * position: 2 4
 
-* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops/tutorials/conditionals/make-your-own-maze
+* url: https://github.com/MrDGuy/pxt-skillmap-robot-conditional-loops-beta/tutorials/conditionals/make-your-own-maze
 * imageUrl: https://raw.githubusercontent.com/MrDGuy/pxt-skillmap-robot-conditional-loops/main/docs/static/while-loop-5.gif
